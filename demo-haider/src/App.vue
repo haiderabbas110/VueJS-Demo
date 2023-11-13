@@ -6,8 +6,14 @@
         <Sidebar />
       </div>
       <main class="col-sm-9">
-        <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
-        <Doughnut :data="data.chartConfig" :options="options" />
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+          </div>
+          <div class="col-sm-6">
+            <Doughnut :data="Doughnut" :options="chartOptions" />
+          </div>
+        </div>
 
       </main>
     </div>
@@ -56,7 +62,15 @@ export default {
         responsive: true,
       },
 
-      chartConfig,
+      Doughnut: {
+        labels: ["Daily", "Weekly", "Monthly", "Annually"],
+        datasets: [
+          {
+            backgroundColor: ["#41B883", "#E46651", "#00D8FF", "#DD1B16"],
+            data: [40, 200, 400, 48000],
+          },
+        ],
+      }
     };
   },
 };
